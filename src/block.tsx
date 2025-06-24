@@ -17,18 +17,18 @@ interface Bone {
 }
 
 const bones: Bone[] = [
-  { id: 'skull', name: 'Crâne', x: 200, y: 50, lineEndX: 170, lineEndY: 80 },
-  { id: 'clavicle', name: 'Clavicule', x: 200, y: 120, lineEndX: 180, lineEndY: 140 },
-  { id: 'sternum', name: 'Sternum', x: 200, y: 160, lineEndX: 200, lineEndY: 180 },
-  { id: 'ribs', name: 'Côtes', x: 200, y: 200, lineEndX: 170, lineEndY: 200 },
-  { id: 'humerus', name: 'Humérus', x: 140, y: 180, lineEndX: 150, lineEndY: 200 },
-  { id: 'radius', name: 'Radius', x: 130, y: 260, lineEndX: 145, lineEndY: 280 },
-  { id: 'ulna', name: 'Cubitus', x: 130, y: 300, lineEndX: 155, lineEndY: 300 },
-  { id: 'spine', name: 'Colonne vertébrale', x: 200, y: 240, lineEndX: 200, lineEndY: 260 },
-  { id: 'pelvis', name: 'Bassin', x: 200, y: 320, lineEndX: 200, lineEndY: 340 },
-  { id: 'femur', name: 'Fémur', x: 180, y: 380, lineEndX: 185, lineEndY: 400 },
-  { id: 'tibia', name: 'Tibia', x: 170, y: 480, lineEndX: 180, lineEndY: 500 },
-  { id: 'fibula', name: 'Péroné', x: 190, y: 520, lineEndX: 195, lineEndY: 520 }
+  { id: 'skull', name: 'Crâne', x: 120, y: 40, lineEndX: 200, lineEndY: 70 },
+  { id: 'clavicle', name: 'Clavicule', x: 80, y: 120, lineEndX: 170, lineEndY: 140 },
+  { id: 'sternum', name: 'Sternum', x: 280, y: 160, lineEndX: 200, lineEndY: 180 },
+  { id: 'ribs', name: 'Côtes', x: 100, y: 200, lineEndX: 160, lineEndY: 200 },
+  { id: 'humerus', name: 'Humérus', x: 80, y: 180, lineEndX: 150, lineEndY: 200 },
+  { id: 'radius', name: 'Radius', x: 60, y: 260, lineEndX: 140, lineEndY: 280 },
+  { id: 'ulna', name: 'Cubitus', x: 40, y: 300, lineEndX: 150, lineEndY: 300 },
+  { id: 'spine', name: 'Colonne vertébrale', x: 320, y: 240, lineEndX: 200, lineEndY: 260 },
+  { id: 'pelvis', name: 'Bassin', x: 300, y: 320, lineEndX: 200, lineEndY: 340 },
+  { id: 'femur', name: 'Fémur', x: 120, y: 380, lineEndX: 185, lineEndY: 420 },
+  { id: 'tibia', name: 'Tibia', x: 100, y: 480, lineEndX: 180, lineEndY: 500 },
+  { id: 'fibula', name: 'Péroné', x: 80, y: 520, lineEndX: 195, lineEndY: 530 }
 ];
 
 const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", description }) => {
@@ -169,50 +169,141 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
             viewBox="0 0 400 600"
             style={{ border: '2px solid #e0e0e0', borderRadius: '10px' }}
           >
-            {/* Squelette simplifié */}
-            {/* Crâne */}
-            <circle cx="200" cy="80" r="30" fill="none" stroke="#34495e" strokeWidth="3"/>
-            
-            {/* Colonne vertébrale */}
-            <line x1="200" y1="110" x2="200" y2="340" stroke="#34495e" strokeWidth="4"/>
-            
-            {/* Clavicules */}
-            <line x1="170" y1="140" x2="230" y2="140" stroke="#34495e" strokeWidth="3"/>
-            
-            {/* Sternum */}
-            <rect x="195" y="150" width="10" height="60" fill="none" stroke="#34495e" strokeWidth="2"/>
-            
-            {/* Côtes */}
-            <ellipse cx="200" cy="180" rx="40" ry="15" fill="none" stroke="#34495e" strokeWidth="2"/>
-            <ellipse cx="200" cy="200" rx="45" ry="20" fill="none" stroke="#34495e" strokeWidth="2"/>
-            <ellipse cx="200" cy="220" rx="40" ry="15" fill="none" stroke="#34495e" strokeWidth="2"/>
-            
-            {/* Bras gauche */}
-            <line x1="170" y1="140" x2="150" y2="220" stroke="#34495e" strokeWidth="3"/> {/* Humérus */}
-            <line x1="150" y1="220" x2="145" y2="300" stroke="#34495e" strokeWidth="2"/> {/* Radius */}
-            <line x1="150" y1="220" x2="155" y2="300" stroke="#34495e" strokeWidth="2"/> {/* Cubitus */}
-            
-            {/* Bras droit */}
-            <line x1="230" y1="140" x2="250" y2="220" stroke="#34495e" strokeWidth="3"/>
-            <line x1="250" y1="220" x2="245" y2="300" stroke="#34495e" strokeWidth="2"/>
-            <line x1="250" y1="220" x2="255" y2="300" stroke="#34495e" strokeWidth="2"/>
-            
-            {/* Bassin */}
-            <ellipse cx="200" cy="340" rx="35" ry="20" fill="none" stroke="#34495e" strokeWidth="3"/>
-            
-            {/* Jambes */}
-            <line x1="185" y1="360" x2="185" y2="480" stroke="#34495e" strokeWidth="4"/> {/* Fémur gauche */}
-            <line x1="215" y1="360" x2="215" y2="480" stroke="#34495e" strokeWidth="4"/> {/* Fémur droit */}
-            
-            <line x1="185" y1="480" x2="180" y2="560" stroke="#34495e" strokeWidth="3"/> {/* Tibia gauche */}
-            <line x1="185" y1="480" x2="195" y2="560" stroke="#34495e" strokeWidth="2"/> {/* Péroné gauche */}
-            
-            <line x1="215" y1="480" x2="220" y2="560" stroke="#34495e" strokeWidth="3"/> {/* Tibia droit */}
-            <line x1="215" y1="480" x2="205" y2="560" stroke="#34495e" strokeWidth="2"/> {/* Péroné droit */}
+            {/* Définition des dégradés */}
+            <defs>
+              <linearGradient id="boneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{stopColor: '#f8f9fa', stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: '#e9ecef', stopOpacity: 1}} />
+              </linearGradient>
+            </defs>
 
-            {/* Lignes et zones de drop pour chaque os */}
+            {/* Squelette amélioré */}
+            {/* Crâne avec détails */}
+            <g>
+              <circle cx="200" cy="70" r="35" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+              <circle cx="185" cy="60" r="4" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Orbite gauche */}
+              <circle cx="215" cy="60" r="4" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Orbite droite */}
+              <path d="M 200 75 Q 195 80 200 82 Q 205 80 200 75" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Nez */}
+              <ellipse cx="200" cy="90" rx="8" ry="3" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Bouche */}
+            </g>
+            
+            {/* Cou */}
+            <rect x="195" y="105" width="10" height="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+            
+            {/* Colonne vertébrale avec vertèbres visibles */}
+            <g>
+              <line x1="200" y1="130" x2="200" y2="340" stroke="#2c3e50" strokeWidth="5"/>
+              {Array.from({length: 15}, (_, i) => (
+                <circle key={i} cx="200" cy={140 + i * 14} r="3" fill="#34495e"/>
+              ))}
+            </g>
+            
+            {/* Clavicules avec forme courbe */}
+            <path d="M 165 135 Q 180 130 200 135 Q 220 130 235 135" 
+                  fill="none" stroke="#2c3e50" strokeWidth="4" strokeLinecap="round"/>
+            
+            {/* Sternum avec détails */}
+            <g>
+              <rect x="195" y="150" width="10" height="70" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" rx="2"/>
+              <line x1="195" y1="170" x2="205" y2="170" stroke="#2c3e50" strokeWidth="1"/>
+              <line x1="195" y1="190" x2="205" y2="190" stroke="#2c3e50" strokeWidth="1"/>
+              <line x1="195" y1="210" x2="205" y2="210" stroke="#2c3e50" strokeWidth="1"/>
+            </g>
+            
+            {/* Côtes avec forme anatomique */}
+            <g>
+              {/* Côtes supérieures */}
+              <path d="M 195 155 Q 160 165 165 180 Q 170 190 195 175" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              <path d="M 205 155 Q 240 165 235 180 Q 230 190 205 175" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              
+              {/* Côtes moyennes */}
+              <path d="M 195 175 Q 150 185 155 210 Q 160 225 195 205" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              <path d="M 205 175 Q 250 185 245 210 Q 240 225 205 205" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              
+              {/* Côtes inférieures */}
+              <path d="M 195 205 Q 160 215 165 235 Q 170 245 195 230" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              <path d="M 205 205 Q 240 215 235 235 Q 230 245 205 230" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              
+              {/* Côtes flottantes */}
+              <path d="M 195 230 Q 170 235 175 245" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+              <path d="M 205 230 Q 230 235 225 245" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+            </g>
+            
+            {/* Bras gauche avec articulations */}
+            <g>
+              {/* Humérus */}
+              <line x1="165" y1="135" x2="150" y2="220" stroke="#2c3e50" strokeWidth="5" strokeLinecap="round"/>
+              <circle cx="165" cy="135" r="4" fill="#34495e"/> {/* Épaule */}
+              <circle cx="150" cy="220" r="4" fill="#34495e"/> {/* Coude */}
+              
+              {/* Radius et Cubitus */}
+              <line x1="150" y1="220" x2="140" y2="300" stroke="#2c3e50" strokeWidth="3" strokeLinecap="round"/>
+              <line x1="150" y1="220" x2="150" y2="300" stroke="#2c3e50" strokeWidth="3" strokeLinecap="round"/>
+              <circle cx="145" cy="300" r="3" fill="#34495e"/> {/* Poignet */}
+              
+              {/* Main simplifiée */}
+              <rect x="135" y="300" width="20" height="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="2"/>
+              <rect x="137" y="308" width="4" height="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="142" y="308" width="4" height="15" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="147" y="308" width="4" height="14" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="152" y="308" width="4" height="10" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+            </g>
+            
+            {/* Bras droit avec articulations */}
+            <g>
+              {/* Humérus */}
+              <line x1="235" y1="135" x2="250" y2="220" stroke="#2c3e50" strokeWidth="5" strokeLinecap="round"/>
+              <circle cx="235" cy="135" r="4" fill="#34495e"/> {/* Épaule */}
+              <circle cx="250" cy="220" r="4" fill="#34495e"/> {/* Coude */}
+              
+              {/* Radius et Cubitus */}
+              <line x1="250" y1="220" x2="260" y2="300" stroke="#2c3e50" strokeWidth="3" strokeLinecap="round"/>
+              <line x1="250" y1="220" x2="250" y2="300" stroke="#2c3e50" strokeWidth="3" strokeLinecap="round"/>
+              <circle cx="255" cy="300" r="3" fill="#34495e"/> {/* Poignet */}
+              
+              {/* Main simplifiée */}
+              <rect x="245" y="300" width="20" height="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="2"/>
+              <rect x="247" y="308" width="4" height="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="252" y="308" width="4" height="15" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="257" y="308" width="4" height="14" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+              <rect x="262" y="308" width="4" height="10" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" rx="1"/>
+            </g>
+            
+            {/* Bassin avec forme anatomique */}
+            <g>
+              <ellipse cx="200" cy="340" rx="40" ry="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="3"/>
+              <ellipse cx="200" cy="340" rx="30" ry="15" fill="none" stroke="#2c3e50" strokeWidth="1"/>
+              <circle cx="175" cy="350" r="6" fill="none" stroke="#2c3e50" strokeWidth="2"/> {/* Hanche gauche */}
+              <circle cx="225" cy="350" r="6" fill="none" stroke="#2c3e50" strokeWidth="2"/> {/* Hanche droite */}
+            </g>
+            
+            {/* Jambes avec articulations */}
+            <g>
+              {/* Fémurs */}
+              <line x1="180" y1="360" x2="185" y2="480" stroke="#2c3e50" strokeWidth="6" strokeLinecap="round"/>
+              <line x1="220" y1="360" x2="215" y2="480" stroke="#2c3e50" strokeWidth="6" strokeLinecap="round"/>
+              <circle cx="185" cy="480" r="5" fill="#34495e"/> {/* Genou gauche */}
+              <circle cx="215" cy="480" r="5" fill="#34495e"/> {/* Genou droit */}
+              
+              {/* Tibias et Péronés */}
+              <line x1="185" y1="480" x2="180" y2="560" stroke="#2c3e50" strokeWidth="4" strokeLinecap="round"/> {/* Tibia gauche */}
+              <line x1="185" y1="480" x2="195" y2="560" stroke="#2c3e50" strokeWidth="2" strokeLinecap="round"/> {/* Péroné gauche */}
+              
+              <line x1="215" y1="480" x2="220" y2="560" stroke="#2c3e50" strokeWidth="4" strokeLinecap="round"/> {/* Tibia droit */}
+              <line x1="215" y1="480" x2="205" y2="560" stroke="#2c3e50" strokeWidth="2" strokeLinecap="round"/> {/* Péroné droit */}
+              
+              <circle cx="187" cy="560" r="3" fill="#34495e"/> {/* Cheville gauche */}
+              <circle cx="212" cy="560" r="3" fill="#34495e"/> {/* Cheville droite */}
+              
+              {/* Pieds simplifiés */}
+              <ellipse cx="175" cy="570" rx="15" ry="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+              <ellipse cx="225" cy="570" rx="15" ry="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+            </g>
+
+            {/* Lignes et zones de drop pour chaque os avec étiquettes visibles */}
             {bones.map(bone => (
               <g key={bone.id}>
+                {/* Ligne de connexion */}
                 <line 
                   x1={bone.x} 
                   y1={bone.y} 
@@ -222,10 +313,12 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                   strokeWidth="2"
                   strokeDasharray="5,5"
                 />
+                
+                {/* Zone de drop */}
                 <circle
                   cx={bone.x}
                   cy={bone.y}
-                  r="12"
+                  r="15"
                   fill={
                     gameState === 'finished' 
                       ? (results[bone.id] ? '#27ae60' : '#e74c3c')
@@ -234,22 +327,52 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                         : '#95a5a6'
                   }
                   stroke="white"
-                  strokeWidth="2"
+                  strokeWidth="3"
                   style={{ cursor: 'pointer' }}
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, bone.id)}
                   onClick={() => gameState === 'playing' && removeAnswer(bone.id)}
                 />
+                
+                {/* Étiquette placée visible */}
+                {userAnswers[bone.id] && (
+                  <g>
+                    {/* Fond de l'étiquette */}
+                    <rect
+                      x={bone.x - 30}
+                      y={bone.y - 25}
+                      width="60"
+                      height="16"
+                      fill="rgba(255,255,255,0.95)"
+                      stroke={gameState === 'finished' ? (results[bone.id] ? '#27ae60' : '#e74c3c') : '#3498db'}
+                      strokeWidth="1"
+                      rx="8"
+                    />
+                    {/* Texte de l'étiquette */}
+                    <text
+                      x={bone.x}
+                      y={bone.y - 14}
+                      textAnchor="middle"
+                      fontSize="9"
+                      fill={gameState === 'finished' ? (results[bone.id] ? '#27ae60' : '#e74c3c') : '#2c3e50'}
+                      fontWeight="bold"
+                    >
+                      {userAnswers[bone.id]}
+                    </text>
+                  </g>
+                )}
+                
+                {/* Icône de validation */}
                 {userAnswers[bone.id] && (
                   <text
                     x={bone.x}
                     y={bone.y + 5}
                     textAnchor="middle"
-                    fontSize="10"
+                    fontSize="12"
                     fill="white"
                     fontWeight="bold"
                   >
-                    ✓
+                    {gameState === 'finished' ? (results[bone.id] ? '✓' : '✗') : '•'}
                   </text>
                 )}
               </g>
@@ -283,15 +406,16 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                   draggable
                   onDragStart={(e) => handleDragStart(e, label)}
                   style={{
-                    background: '#3498db',
+                    background: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
                     color: 'white',
-                    padding: '8px 12px',
+                    padding: '10px 14px',
                     borderRadius: '20px',
                     cursor: 'grab',
                     fontSize: '0.9rem',
                     userSelect: 'none',
-                    transition: 'transform 0.2s',
-                    border: '2px solid transparent'
+                    transition: 'all 0.2s',
+                    border: '2px solid transparent',
+                    boxShadow: '0 2px 8px rgba(52,152,219,0.3)'
                   }}
                   onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
                   onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -310,7 +434,7 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
             padding: '20px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
           }}>
-            <h3 style={{ margin: '0 0 15px 0', color: '#2c3e50' }}>Réponses placées</h3>
+            <h3 style={{ margin: '0 0 15px 0', color: '#2c3e50' }}>Réponses placées ({Object.keys(userAnswers).length}/{bones.length})</h3>
             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
               {Object.entries(userAnswers).map(([boneId, answer]) => {
                 const bone = bones.find(b => b.id === boneId);
@@ -321,37 +445,43 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      padding: '8px',
+                      padding: '10px',
                       margin: '4px 0',
                       background: gameState === 'finished' 
-                        ? (results[boneId] ? '#d5f4e6' : '#ffeaa7')
-                        : '#f8f9fa',
-                      borderRadius: '8px',
+                        ? (results[boneId] ? 'linear-gradient(135deg, #d5f4e6 0%, #a8e6cf 100%)' : 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)')
+                        : 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+                      borderRadius: '10px',
                       fontSize: '0.9rem',
                       border: gameState === 'finished' 
                         ? (results[boneId] ? '2px solid #27ae60' : '2px solid #e74c3c')
-                        : '1px solid #e0e0e0'
+                        : '1px solid #e0e0e0',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                     }}
                   >
                     <span style={{ 
                       color: gameState === 'finished' 
                         ? (results[boneId] ? '#27ae60' : '#e74c3c')
-                        : '#2c3e50'
+                        : '#2c3e50',
+                      fontWeight: 'bold'
                     }}>
+                      {gameState === 'finished' && (results[boneId] ? '✓ ' : '✗ ')}
                       {answer}
                     </span>
                     {gameState === 'playing' && (
                       <button
                         onClick={() => removeAnswer(boneId)}
                         style={{
-                          background: '#e74c3c',
+                          background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
                           color: 'white',
                           border: 'none',
                           borderRadius: '50%',
-                          width: '20px',
-                          height: '20px',
+                          width: '24px',
+                          height: '24px',
                           cursor: 'pointer',
-                          fontSize: '12px'
+                          fontSize: '14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
                         }}
                       >
                         ×
@@ -376,14 +506,20 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                 onClick={checkAnswers}
                 disabled={Object.keys(userAnswers).length === 0}
                 style={{
-                  background: Object.keys(userAnswers).length === 0 ? '#bdc3c7' : '#27ae60',
+                  background: Object.keys(userAnswers).length === 0 
+                    ? 'linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%)' 
+                    : 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '12px 24px',
+                  padding: '15px 30px',
                   borderRadius: '25px',
                   fontSize: '1.1rem',
                   cursor: Object.keys(userAnswers).length === 0 ? 'not-allowed' : 'pointer',
-                  transition: 'background 0.3s'
+                  transition: 'all 0.3s',
+                  boxShadow: Object.keys(userAnswers).length === 0 
+                    ? 'none' 
+                    : '0 4px 15px rgba(39,174,96,0.3)',
+                  fontWeight: 'bold'
                 }}
               >
                 Vérifier les réponses
@@ -391,34 +527,38 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
             ) : (
               <div>
                 <div style={{
-                  fontSize: '2rem',
+                  fontSize: '2.5rem',
                   fontWeight: 'bold',
                   color: score >= 75 ? '#27ae60' : score >= 50 ? '#f39c12' : '#e74c3c',
-                  margin: '0 0 10px 0'
+                  margin: '0 0 10px 0',
+                  textShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}>
                   Score: {score}%
                 </div>
                 <p style={{
                   margin: '0 0 20px 0',
                   color: '#2c3e50',
-                  fontSize: '1rem'
+                  fontSize: '1rem',
+                  lineHeight: '1.4'
                 }}>
                   {getScoreMessage(score)}
                 </p>
                 <button
                   onClick={resetGame}
                   style={{
-                    background: '#3498db',
+                    background: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
                     color: 'white',
                     border: 'none',
-                    padding: '12px 24px',
+                    padding: '15px 30px',
                     borderRadius: '25px',
                     fontSize: '1.1rem',
                     cursor: 'pointer',
-                    transition: 'background 0.3s'
+                    transition: 'all 0.3s',
+                    boxShadow: '0 4px 15px rgba(52,152,219,0.3)',
+                    fontWeight: 'bold'
                   }}
                 >
-                  Rejouer
+                  🔄 Rejouer
                 </button>
               </div>
             )}
