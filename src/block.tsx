@@ -27,7 +27,7 @@ const bones: Bone[] = [
   { id: 'spine', name: 'Colonne vertébrale', x: 320, y: 280, lineEndX: 200, lineEndY: 250 },
   { id: 'pelvis', name: 'Bassin', x: 300, y: 350, lineEndX: 200, lineEndY: 340 },
   { id: 'femur', name: 'Fémur', x: 100, y: 420, lineEndX: 175, lineEndY: 420 },
-  { id: 'tibia', name: 'Tibia', x: 70, y: 500, lineEndX: 165, lineEndY: 520 },
+  { id: 'tibia', name: 'Tibia', x: 70, y: 500, lineEndX: 175, lineEndY: 510 },
   { id: 'fibula', name: 'Péroné', x: 90, y: 560, lineEndX: 155, lineEndY: 545 }
 ];
 
