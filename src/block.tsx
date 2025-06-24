@@ -175,20 +175,76 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                 <stop offset="0%" style={{stopColor: '#f8f9fa', stopOpacity: 1}} />
                 <stop offset="100%" style={{stopColor: '#e9ecef', stopOpacity: 1}} />
               </linearGradient>
+              <radialGradient id="skullGradient" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" style={{stopColor: '#f8f9fa', stopOpacity: 1}} />
+                <stop offset="100%" style={{stopColor: '#dee2e6', stopOpacity: 1}} />
+              </radialGradient>
             </defs>
 
             {/* Squelette amélioré */}
-            {/* Crâne avec détails */}
+            {/* Crâne de pirate réaliste */}
             <g>
-              <circle cx="200" cy="70" r="35" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
-              <circle cx="185" cy="60" r="4" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Orbite gauche */}
-              <circle cx="215" cy="60" r="4" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Orbite droite */}
-              <path d="M 200 75 Q 195 80 200 82 Q 205 80 200 75" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Nez */}
-              <ellipse cx="200" cy="90" rx="8" ry="3" fill="none" stroke="#2c3e50" strokeWidth="1.5"/> {/* Bouche */}
+              {/* Forme principale du crâne */}
+              <path d="M 200 35 
+                       Q 230 35 240 55 
+                       Q 245 75 240 85
+                       Q 235 95 220 98
+                       L 210 105
+                       Q 205 107 200 107
+                       Q 195 107 190 105
+                       L 180 98
+                       Q 165 95 160 85
+                       Q 155 75 160 55
+                       Q 170 35 200 35 Z" 
+                    fill="url(#skullGradient)" 
+                    stroke="#2c3e50" 
+                    strokeWidth="2"/>
+              
+              {/* Sutures du crâne */}
+              <path d="M 170 50 Q 200 45 230 50" fill="none" stroke="#2c3e50" strokeWidth="1" opacity="0.6"/>
+              <path d="M 175 65 Q 200 60 225 65" fill="none" stroke="#2c3e50" strokeWidth="1" opacity="0.6"/>
+              
+              {/* Orbites oculaires creuses (plus grandes et plus sombres) */}
+              <ellipse cx="185" cy="60" rx="8" ry="12" fill="#2c3e50" stroke="#1a252f" strokeWidth="2"/>
+              <ellipse cx="215" cy="60" rx="8" ry="12" fill="#2c3e50" stroke="#1a252f" strokeWidth="2"/>
+              
+              {/* Cavité nasale triangulaire */}
+              <path d="M 200 70 L 195 85 L 205 85 Z" fill="#2c3e50" stroke="#1a252f" strokeWidth="1.5"/>
+              
+              {/* Mâchoire supérieure */}
+              <rect x="190" y="85" width="20" height="8" fill="url(#skullGradient)" stroke="#2c3e50" strokeWidth="1.5" rx="2"/>
+              
+              {/* Dents */}
+              <rect x="192" y="93" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="195" y="93" width="2" height="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="198" y="93" width="2" height="7" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="201" y="93" width="2" height="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="204" y="93" width="2" height="7" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="207" y="93" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              
+              {/* Mâchoire inférieure */}
+              <path d="M 185 100 Q 200 108 215 100 Q 210 115 200 115 Q 190 115 185 100 Z" 
+                    fill="url(#skullGradient)" stroke="#2c3e50" strokeWidth="1.5"/>
+              
+              {/* Dents inférieures */}
+              <rect x="192" y="100" width="2" height="5" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="195" y="100" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="198" y="100" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="201" y="100" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="204" y="100" width="2" height="6" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              <rect x="207" y="100" width="2" height="5" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="0.5"/>
+              
+              {/* Fissures et détails du crâne */}
+              <path d="M 175 70 Q 180 75 175 80" fill="none" stroke="#2c3e50" strokeWidth="1" opacity="0.5"/>
+              <path d="M 225 70 Q 220 75 225 80" fill="none" stroke="#2c3e50" strokeWidth="1" opacity="0.5"/>
+              
+              {/* Trous temporaux */}
+              <circle cx="165" cy="70" r="3" fill="#34495e" stroke="#2c3e50" strokeWidth="1"/>
+              <circle cx="235" cy="70" r="3" fill="#34495e" stroke="#2c3e50" strokeWidth="1"/>
             </g>
             
             {/* Cou */}
-            <rect x="195" y="105" width="10" height="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+            <rect x="195" y="115" width="10" height="15" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
             
             {/* Colonne vertébrale avec vertèbres visibles */}
             <g>
