@@ -17,18 +17,18 @@ interface Bone {
 }
 
 const bones: Bone[] = [
-  { id: 'skull', name: 'Crâne', x: 120, y: 40, lineEndX: 200, lineEndY: 70 },
-  { id: 'clavicle', name: 'Clavicule', x: 80, y: 120, lineEndX: 170, lineEndY: 140 },
-  { id: 'sternum', name: 'Sternum', x: 280, y: 160, lineEndX: 200, lineEndY: 180 },
-  { id: 'ribs', name: 'Côtes', x: 100, y: 200, lineEndX: 160, lineEndY: 200 },
-  { id: 'humerus', name: 'Humérus', x: 80, y: 180, lineEndX: 150, lineEndY: 200 },
-  { id: 'radius', name: 'Radius', x: 60, y: 260, lineEndX: 140, lineEndY: 280 },
-  { id: 'ulna', name: 'Cubitus', x: 40, y: 300, lineEndX: 150, lineEndY: 300 },
-  { id: 'spine', name: 'Colonne vertébrale', x: 320, y: 240, lineEndX: 200, lineEndY: 260 },
-  { id: 'pelvis', name: 'Bassin', x: 300, y: 320, lineEndX: 200, lineEndY: 340 },
-  { id: 'femur', name: 'Fémur', x: 120, y: 380, lineEndX: 185, lineEndY: 420 },
-  { id: 'tibia', name: 'Tibia', x: 100, y: 480, lineEndX: 180, lineEndY: 500 },
-  { id: 'fibula', name: 'Péroné', x: 80, y: 520, lineEndX: 195, lineEndY: 530 }
+  { id: 'skull', name: 'Crâne', x: 80, y: 30, lineEndX: 165, lineEndY: 50 },
+  { id: 'clavicle', name: 'Clavicule', x: 50, y: 120, lineEndX: 150, lineEndY: 130 },
+  { id: 'sternum', name: 'Sternum', x: 280, y: 180, lineEndX: 205, lineEndY: 180 },
+  { id: 'ribs', name: 'Côtes', x: 320, y: 200, lineEndX: 250, lineEndY: 200 },
+  { id: 'humerus', name: 'Humérus', x: 60, y: 180, lineEndX: 140, lineEndY: 165 },
+  { id: 'radius', name: 'Radius', x: 40, y: 260, lineEndX: 125, lineEndY: 240 },
+  { id: 'ulna', name: 'Cubitus', x: 30, y: 300, lineEndX: 130, lineEndY: 265 },
+  { id: 'spine', name: 'Colonne vertébrale', x: 320, y: 280, lineEndX: 200, lineEndY: 250 },
+  { id: 'pelvis', name: 'Bassin', x: 300, y: 350, lineEndX: 200, lineEndY: 340 },
+  { id: 'femur', name: 'Fémur', x: 100, y: 420, lineEndX: 175, lineEndY: 420 },
+  { id: 'tibia', name: 'Tibia', x: 80, y: 520, lineEndX: 165, lineEndY: 530 },
+  { id: 'fibula', name: 'Péroné', x: 50, y: 540, lineEndX: 155, lineEndY: 527 }
 ];
 
 const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", description }) => {
@@ -128,7 +128,7 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
     return "Il faut étudier davantage l'anatomie ! Ne vous découragez pas ! 📖";
   };
 
-  // Composant SVG du squelette
+  // Composant SVG du squelette amélioré
   const SkeletonSVG = () => (
     <svg
       width="400"
@@ -144,59 +144,126 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
       {/* Fond blanc */}
       <rect width="400" height="600" fill="#f8f9fa" stroke="#e0e0e0" strokeWidth="2" rx="10"/>
       
-      {/* Squelette dessiné en SVG */}
+      {/* Dégradé pour les os */}
+      <defs>
+        <linearGradient id="boneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f8f9fa" />
+          <stop offset="100%" stopColor="#e9ecef" />
+        </linearGradient>
+        <filter id="boneShadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feDropShadow dx="2" dy="2" stdDeviation="3" floodColor="#00000020"/>
+        </filter>
+      </defs>
       
-      {/* Crâne */}
-      <circle cx="200" cy="70" r="35" fill="none" stroke="#2c3e50" strokeWidth="3"/>
-      <circle cx="185" cy="60" r="3" fill="#2c3e50"/>
-      <circle cx="215" cy="60" r="3" fill="#2c3e50"/>
-      <path d="M 185 85 Q 200 95 215 85" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Squelette dessiné en SVG avec plus de détails */}
       
-      {/* Colonne vertébrale */}
-      <line x1="200" y1="105" x2="200" y2="340" stroke="#2c3e50" strokeWidth="4"/>
+      {/* Crâne avec plus de détails */}
+      <ellipse cx="200" cy="65" rx="38" ry="42" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2.5" filter="url(#boneShadow)"/>
+      <circle cx="185" cy="58" r="4" fill="#2c3e50"/>
+      <circle cx="215" cy="58" r="4" fill="#2c3e50"/>
+      <path d="M 185 80 Q 200 90 215 80" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Mâchoire */}
+      <ellipse cx="200" cy="95" rx="25" ry="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
       
-      {/* Côtes */}
-      <ellipse cx="200" cy="160" rx="50" ry="25" fill="none" stroke="#2c3e50" strokeWidth="2"/>
-      <ellipse cx="200" cy="180" rx="55" ry="28" fill="none" stroke="#2c3e50" strokeWidth="2"/>
-      <ellipse cx="200" cy="200" rx="60" ry="30" fill="none" stroke="#2c3e50" strokeWidth="2"/>
-      <ellipse cx="200" cy="220" rx="58" ry="28" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Colonne vertébrale avec vertèbres */}
+      <rect x="198" y="105" width="4" height="235" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1" filter="url(#boneShadow)"/>
+      {/* Vertèbres cervicales */}
+      <circle cx="200" cy="115" r="3" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="125" r="3" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      {/* Vertèbres thoraciques */}
+      <circle cx="200" cy="150" r="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="170" r="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="190" r="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="210" r="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="230" r="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      {/* Vertèbres lombaires */}
+      <circle cx="200" cy="260" r="5" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="280" r="5" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="300" r="5" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <circle cx="200" cy="320" r="5" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      
+      {/* Cage thoracique avec côtes plus réalistes */}
+      <g fill="none" stroke="#2c3e50" strokeWidth="2.5">
+        {/* Côtes droites */}
+        <path d="M 200 150 Q 240 160 250 180 Q 240 200 200 190" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 170 Q 245 180 255 205 Q 245 225 200 210" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 190 Q 250 200 260 230 Q 250 250 200 230" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 210 Q 245 220 250 245 Q 240 260 200 245" fill="url(#boneGradient)" strokeWidth="2"/>
+        
+        {/* Côtes gauches */}
+        <path d="M 200 150 Q 160 160 150 180 Q 160 200 200 190" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 170 Q 155 180 145 205 Q 155 225 200 210" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 190 Q 150 200 140 230 Q 150 250 200 230" fill="url(#boneGradient)" strokeWidth="2"/>
+        <path d="M 200 210 Q 155 220 150 245 Q 160 260 200 245" fill="url(#boneGradient)" strokeWidth="2"/>
+      </g>
       
       {/* Clavicules */}
-      <line x1="150" y1="130" x2="250" y2="130" stroke="#2c3e50" strokeWidth="3"/>
+      <ellipse cx="175" cy="130" rx="25" ry="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      <ellipse cx="225" cy="130" rx="25" ry="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
       
-      {/* Sternum */}
-      <rect x="195" y="140" width="10" height="80" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Sternum avec détails */}
+      <ellipse cx="200" cy="180" rx="8" ry="35" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
       
-      {/* Bras gauche */}
-      <line x1="150" y1="130" x2="130" y2="200" stroke="#2c3e50" strokeWidth="3"/> {/* Humérus */}
-      <line x1="130" y1="200" x2="120" y2="280" stroke="#2c3e50" strokeWidth="2"/> {/* Radius */}
-      <line x1="130" y1="200" x2="125" y2="285" stroke="#2c3e50" strokeWidth="2"/> {/* Cubitus */}
+      {/* Bras gauche avec os plus détaillés */}
+      {/* Humérus gauche */}
+      <ellipse cx="140" cy="165" rx="6" ry="35" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2.5" filter="url(#boneShadow)" transform="rotate(-15 140 165)"/>
+      {/* Radius gauche */}
+      <ellipse cx="125" cy="240" rx="4" ry="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)" transform="rotate(-8 125 240)"/>
+      {/* Cubitus gauche */}
+      <ellipse cx="130" cy="265" rx="3.5" ry="28" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)" transform="rotate(-5 130 265)"/>
       
-      {/* Bras droit */}
-      <line x1="250" y1="130" x2="270" y2="200" stroke="#2c3e50" strokeWidth="3"/> {/* Humérus */}
-      <line x1="270" y1="200" x2="280" y2="280" stroke="#2c3e50" strokeWidth="2"/> {/* Radius */}
-      <line x1="270" y1="200" x2="275" y2="285" stroke="#2c3e50" strokeWidth="2"/> {/* Cubitus */}
+      {/* Bras droit avec os plus détaillés */}
+      {/* Humérus droit */}
+      <ellipse cx="260" cy="165" rx="6" ry="35" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2.5" filter="url(#boneShadow)" transform="rotate(15 260 165)"/>
+      {/* Radius droit */}
+      <ellipse cx="275" cy="240" rx="4" ry="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)" transform="rotate(8 275 240)"/>
+      {/* Cubitus droit */}
+      <ellipse cx="270" cy="265" rx="3.5" ry="28" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)" transform="rotate(5 270 265)"/>
       
-      {/* Mains */}
-      <ellipse cx="118" cy="290" rx="8" ry="12" fill="none" stroke="#2c3e50" strokeWidth="2"/>
-      <ellipse cx="282" cy="290" rx="8" ry="12" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Mains avec plus de détails */}
+      <ellipse cx="118" cy="295" rx="12" ry="18" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      <ellipse cx="282" cy="295" rx="12" ry="18" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      {/* Doigts */}
+      <rect x="112" y="310" width="2" height="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="116" y="312" width="2" height="14" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="120" y="312" width="2" height="13" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="124" y="310" width="2" height="11" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
       
-      {/* Bassin */}
-      <ellipse cx="200" cy="340" rx="45" ry="20" fill="none" stroke="#2c3e50" strokeWidth="3"/>
+      <rect x="276" y="310" width="2" height="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="280" y="312" width="2" height="14" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="284" y="312" width="2" height="13" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <rect x="288" y="310" width="2" height="11" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
       
-      {/* Jambe gauche */}
-      <line x1="175" y1="360" x2="165" y2="480" stroke="#2c3e50" strokeWidth="4"/> {/* Fémur */}
-      <line x1="165" y1="480" x2="160" y2="580" stroke="#2c3e50" strokeWidth="3"/> {/* Tibia */}
-      <line x1="165" y1="480" x2="155" y2="575" stroke="#2c3e50" strokeWidth="2"/> {/* Péroné */}
+      {/* Bassin avec plus de détails */}
+      <ellipse cx="200" cy="340" rx="50" ry="25" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="3" filter="url(#boneShadow)"/>
+      <ellipse cx="200" cy="340" rx="30" ry="15" fill="none" stroke="#2c3e50" strokeWidth="2"/>
       
-      {/* Jambe droite */}
-      <line x1="225" y1="360" x2="235" y2="480" stroke="#2c3e50" strokeWidth="4"/> {/* Fémur */}
-      <line x1="235" y1="480" x2="240" y2="580" stroke="#2c3e50" strokeWidth="3"/> {/* Tibia */}
-      <line x1="235" y1="480" x2="245" y2="575" stroke="#2c3e50" strokeWidth="2"/> {/* Péroné */}
+      {/* Jambe gauche avec os plus détaillés */}
+      {/* Fémur gauche */}
+      <ellipse cx="175" cy="420" rx="8" ry="60" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="3" filter="url(#boneShadow)" transform="rotate(-8 175 420)"/>
+      {/* Rotule gauche */}
+      <ellipse cx="165" cy="480" rx="6" ry="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Tibia gauche */}
+      <ellipse cx="165" cy="530" rx="5" ry="50" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2.5" filter="url(#boneShadow)"/>
+      {/* Péroné gauche */}
+      <ellipse cx="155" cy="527" rx="3" ry="47" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
       
-      {/* Pieds */}
-      <ellipse cx="158" cy="590" rx="15" ry="8" fill="none" stroke="#2c3e50" strokeWidth="2"/>
-      <ellipse cx="242" cy="590" rx="15" ry="8" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Jambe droite avec os plus détaillés */}
+      {/* Fémur droit */}
+      <ellipse cx="225" cy="420" rx="8" ry="60" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="3" filter="url(#boneShadow)" transform="rotate(8 225 420)"/>
+      {/* Rotule droite */}
+      <ellipse cx="235" cy="480" rx="6" ry="8" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2"/>
+      {/* Tibia droit */}
+      <ellipse cx="235" cy="530" rx="5" ry="50" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2.5" filter="url(#boneShadow)"/>
+      {/* Péroné droit */}
+      <ellipse cx="245" cy="527" rx="3" ry="47" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      
+      {/* Pieds avec plus de détails */}
+      <ellipse cx="158" cy="590" rx="20" ry="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      <ellipse cx="242" cy="590" rx="20" ry="12" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="2" filter="url(#boneShadow)"/>
+      {/* Orteils */}
+      <ellipse cx="145" cy="585" rx="8" ry="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
+      <ellipse cx="255" cy="585" rx="8" ry="4" fill="url(#boneGradient)" stroke="#2c3e50" strokeWidth="1"/>
     </svg>
   );
 
