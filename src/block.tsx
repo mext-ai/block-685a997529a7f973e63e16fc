@@ -164,19 +164,26 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
           boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
           position: 'relative'
         }}>
-          {/* Image du squelette en arrière-plan */}
           <div style={{
             position: 'relative',
             width: '400px',
             height: '600px',
-            border: '2px solid #e0e0e0',
-            borderRadius: '10px',
-            backgroundImage: 'url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1TnIWGfE7yPvJGDYRdKCNx0rN7VKT6.png)',
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center'
+            margin: '0 auto'
           }}>
-            {/* SVG transparent par-dessus l'image pour les zones de drop */}
+            {/* Image du squelette */}
+            <img 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1TnIWGfE7yPvJGDYRdKCNx0rN7VKT6.png"
+              alt="Squelette humain"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                borderRadius: '10px',
+                border: '2px solid #e0e0e0'
+              }}
+            />
+            
+            {/* SVG par-dessus pour les zones interactives */}
             <svg
               width="400"
               height="600"
@@ -188,7 +195,6 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                 zIndex: 2
               }}
             >
-              {/* Lignes et zones de drop pour chaque os avec étiquettes visibles */}
               {bones.map(bone => (
                 <g key={bone.id}>
                   {/* Ligne de connexion */}
@@ -223,10 +229,9 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                     opacity="0.9"
                   />
                   
-                  {/* Étiquette placée visible */}
+                  {/* Étiquette placée */}
                   {userAnswers[bone.id] && (
                     <g>
-                      {/* Fond de l'étiquette */}
                       <rect
                         x={bone.x - 35}
                         y={bone.y - 28}
@@ -237,7 +242,6 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
                         strokeWidth="2"
                         rx="9"
                       />
-                      {/* Texte de l'étiquette */}
                       <text
                         x={bone.x}
                         y={bone.y - 15}
