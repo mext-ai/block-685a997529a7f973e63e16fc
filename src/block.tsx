@@ -128,6 +128,78 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
     return "Il faut étudier davantage l'anatomie ! Ne vous découragez pas ! 📖";
   };
 
+  // Composant SVG du squelette
+  const SkeletonSVG = () => (
+    <svg
+      width="400"
+      height="600"
+      viewBox="0 0 400 600"
+      style={{ 
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        zIndex: 1
+      }}
+    >
+      {/* Fond blanc */}
+      <rect width="400" height="600" fill="#f8f9fa" stroke="#e0e0e0" strokeWidth="2" rx="10"/>
+      
+      {/* Squelette dessiné en SVG */}
+      
+      {/* Crâne */}
+      <circle cx="200" cy="70" r="35" fill="none" stroke="#2c3e50" strokeWidth="3"/>
+      <circle cx="185" cy="60" r="3" fill="#2c3e50"/>
+      <circle cx="215" cy="60" r="3" fill="#2c3e50"/>
+      <path d="M 185 85 Q 200 95 215 85" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      
+      {/* Colonne vertébrale */}
+      <line x1="200" y1="105" x2="200" y2="340" stroke="#2c3e50" strokeWidth="4"/>
+      
+      {/* Côtes */}
+      <ellipse cx="200" cy="160" rx="50" ry="25" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      <ellipse cx="200" cy="180" rx="55" ry="28" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      <ellipse cx="200" cy="200" rx="60" ry="30" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      <ellipse cx="200" cy="220" rx="58" ry="28" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      
+      {/* Clavicules */}
+      <line x1="150" y1="130" x2="250" y2="130" stroke="#2c3e50" strokeWidth="3"/>
+      
+      {/* Sternum */}
+      <rect x="195" y="140" width="10" height="80" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      
+      {/* Bras gauche */}
+      <line x1="150" y1="130" x2="130" y2="200" stroke="#2c3e50" strokeWidth="3"/> {/* Humérus */}
+      <line x1="130" y1="200" x2="120" y2="280" stroke="#2c3e50" strokeWidth="2"/> {/* Radius */}
+      <line x1="130" y1="200" x2="125" y2="285" stroke="#2c3e50" strokeWidth="2"/> {/* Cubitus */}
+      
+      {/* Bras droit */}
+      <line x1="250" y1="130" x2="270" y2="200" stroke="#2c3e50" strokeWidth="3"/> {/* Humérus */}
+      <line x1="270" y1="200" x2="280" y2="280" stroke="#2c3e50" strokeWidth="2"/> {/* Radius */}
+      <line x1="270" y1="200" x2="275" y2="285" stroke="#2c3e50" strokeWidth="2"/> {/* Cubitus */}
+      
+      {/* Mains */}
+      <ellipse cx="118" cy="290" rx="8" ry="12" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      <ellipse cx="282" cy="290" rx="8" ry="12" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      
+      {/* Bassin */}
+      <ellipse cx="200" cy="340" rx="45" ry="20" fill="none" stroke="#2c3e50" strokeWidth="3"/>
+      
+      {/* Jambe gauche */}
+      <line x1="175" y1="360" x2="165" y2="480" stroke="#2c3e50" strokeWidth="4"/> {/* Fémur */}
+      <line x1="165" y1="480" x2="160" y2="580" stroke="#2c3e50" strokeWidth="3"/> {/* Tibia */}
+      <line x1="165" y1="480" x2="155" y2="575" stroke="#2c3e50" strokeWidth="2"/> {/* Péroné */}
+      
+      {/* Jambe droite */}
+      <line x1="225" y1="360" x2="235" y2="480" stroke="#2c3e50" strokeWidth="4"/> {/* Fémur */}
+      <line x1="235" y1="480" x2="240" y2="580" stroke="#2c3e50" strokeWidth="3"/> {/* Tibia */}
+      <line x1="235" y1="480" x2="245" y2="575" stroke="#2c3e50" strokeWidth="2"/> {/* Péroné */}
+      
+      {/* Pieds */}
+      <ellipse cx="158" cy="590" rx="15" ry="8" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+      <ellipse cx="242" cy="590" rx="15" ry="8" fill="none" stroke="#2c3e50" strokeWidth="2"/>
+    </svg>
+  );
+
   return (
     <div style={{
       fontFamily: 'Arial, sans-serif',
@@ -170,18 +242,8 @@ const Block: React.FC<BlockProps> = ({ title = "Jeu de Reconnaissance des Os", d
             height: '600px',
             margin: '0 auto'
           }}>
-            {/* Image du squelette */}
-            <img 
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1TnIWGfE7yPvJGDYRdKCNx0rN7VKT6.png"
-              alt="Squelette humain"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
-                borderRadius: '10px',
-                border: '2px solid #e0e0e0'
-              }}
-            />
+            {/* Squelette SVG */}
+            <SkeletonSVG />
             
             {/* SVG par-dessus pour les zones interactives */}
             <svg
